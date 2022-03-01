@@ -68,14 +68,14 @@ const Close = styled.span`
   font-size: 18px;
 `;
 
-const Tooltip = ({ onToggle }) => {
+const Tooltip = ({ tooltip, onToggle }) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const handleToggle = () => {
     onToggle();
     setShowTooltip(!showTooltip);
   };
   return (
-    <Wrapper>
+    <Wrapper {...tooltip}>
       <Button onClick={handleToggle}>
         {showTooltip ? <Close>&times;</Close> : "?"}
       </Button>

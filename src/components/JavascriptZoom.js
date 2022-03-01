@@ -12,13 +12,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 `;
-const ReferenceContainer = styled.div`
+const ZoomPan = styled.div`
   height: 80%;
   width: 100%;
   position: relative;
 `;
 
-const JavascriptZoom = ({ children }) => {
+const JavascriptZoom = ({ children, zoomPan, tooltip, ...props }) => {
   const ref = useRef(null);
   const [resetInstance, setResetInstance] = useState(false);
 
@@ -81,9 +81,14 @@ const JavascriptZoom = ({ children }) => {
   }, [resetInstance]);
 
   return (
-    <Wrapper>
-      <Tooltip onToggle={() => setResetInstance(!resetInstance)} />
-      <ReferenceContainer ref={ref}>{children}</ReferenceContainer>
+    <Wrapper {...props}>
+      <Tooltip
+        tooltip={tooltip}
+        onToggle={() => setResetInstance(!resetInstance)}
+      />
+      <ZoomPan ref={ref} {...zoomPan}>
+        {children}
+      </ZoomPan>
     </Wrapper>
   );
 };

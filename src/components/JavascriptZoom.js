@@ -4,17 +4,25 @@ import Tooltip from "./Tooltip";
 import { renderer } from "./zoomRenderer";
 
 const Wrapper = styled.div`
+  width: ${(p) => p.width || "90vw"};
+  height: ${(p) => p.height || "90vh"};
+  background: ${(p) => p.background || "default"};
+  box-shadow: ${(p) =>
+    p.boxShadow ||
+    "0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)"};
   position: relative;
-  width: 500px;
-  height: 500px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
 `;
 const ZoomPan = styled.div`
-  height: 80%;
-  width: 100%;
+  width: ${(p) => p.width || "100%"};
+  height: ${(p) => p.height || "100%"};
+  background: ${(p) => p.background || "default"};
+  box-shadow: ${(p) =>
+    p.boxShadow ||
+    "0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)"};
   position: relative;
 `;
 

@@ -3,12 +3,13 @@ import "./App.css";
 import JavascriptZoom from "./components/JavascriptZoom";
 
 const Area = styled.div`
+  box-sizing: border-box;
   position: absolute;
-
-  border: 1px dashed black;
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
   position: absolute;
+  background-color: #444;
+  padding: 20px;
 `;
 const Rectangle = styled.div`
   background-color: navajowhite;
